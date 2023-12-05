@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Raleway } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/components/Sidebar";
 import Profile from "@/components/Profile";
 import { cn } from "@/lib/utils";
-const font = Raleway({ subsets: ["latin"] });
+import Backgroud from "@/components/Backgroud";
+const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Vraj - Portfolio",
@@ -18,7 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("bg-[#18181b]", font.className)}>
+      <body className={cn("bg-[hsl(240,5%,9.8%)]", font.className)}>
+        <Backgroud />
         <Sidebar />
         <Profile />
         {children}

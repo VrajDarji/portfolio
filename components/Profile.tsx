@@ -54,7 +54,7 @@ const Profile = () => {
           className={"object-cover rounded-full"}
         />
         <button
-          className="absolute top-3 left-3 p-3 rounded-full bg-[rgba(0,0,0,0.5)] text-white"
+          className="absolute top-3 left-3 p-3 rounded-full bg-[rgba(39,40,45,.5)] text-white"
           onClick={() => Enlarge()}
         >
           <X className="h-5 w-5" />

@@ -47,7 +47,7 @@ const Sidebar = () => {
     console.log(pathname);
   }, [pathname]);
   return (
-    <div className="z-20 fixed top-0 left-0 w-20 h-[100vh] bg-[#202025] flex flex-col items-center justify-center gap-3 px-2 text-[#acb0b7]">
+    <div className="z-20 fixed top-0 left-0 w-20 h-[100vh] bg-[rgba(39,40,45,.5)] flex flex-col items-center justify-center gap-3 px-2 text-[#acb0b7]">
       {icons.map((icon) => {
         return (
           <TooltipProvider key={icon.tag}>
