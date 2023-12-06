@@ -1,51 +1,87 @@
 "use client";
 
 import { User, Building, Layers, FileCode2, Mail } from "lucide-react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "./ui/tooltip";
-import { useParams, usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 const icons = [
   {
     icon: <User className="h-5 w-5" strokeWidth={1} />,
     tag: "About",
-    href: "/",
+    href: "#",
   },
   {
     icon: <Layers className="h-5 w-5" strokeWidth={1} />,
     tag: "Stack",
-    href: "/stack",
+    href: "#stack",
   },
   {
     icon: <FileCode2 className="h-5 w-5" strokeWidth={1} />,
     tag: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     icon: <Building className="h-5 w-5" strokeWidth={1} />,
     tag: "Work Experience",
-    href: "/experience",
+    href: "#experience",
   },
   {
     icon: <Mail className="h-5 w-5" strokeWidth={1} />,
     tag: "Contact",
-    href: "/contact",
+    href: "#contact",
   },
 ];
 
 const Sidebar = () => {
-  const pathname = usePathname();
-  const router = useRouter();
-  console.log(pathname);
+  const [pathname, SetPathname] = useState<string>("#");
   useEffect(() => {
-    console.log(pathname);
-  }, [pathname]);
+    const onScroll = () => {
+      const fromTop = window.scrollY;
+      for (const item of icons) {
+        const section = document.getElementById(item.href);
+        if (section) {
+          const isActive =
+            section.offsetTop -
+              (parseFloat(getComputedStyle(section).scrollMarginTop) || 0) <=
+              fromTop && section.offsetTop + section.offsetHeight > fromTop;
+          if (isActive) {
+            SetPathname(item.href);
+            break;
+          }
+        }
+      }
+    };
+    document.addEventListener("scroll", onScroll);
+    return () => {
+      document.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    let sId = sectionId;
+    if (sectionId === "#") {
+      sId = "#container";
+    }
+    const section = document.getElementById(sId);
+    if (section) {
+      const fromTop = window.scrollY;
+      section.scrollIntoView({
+        behavior: "smooth",
+        // block: "start",
+        // inline: "nearest",
+      });
+      setTimeout(() => {
+        SetPathname(sectionId);
+      }, 250);
+    }
+  };
+
   return (
     <div className="z-20 fixed top-0 left-0 w-20 h-[100vh] bg-[rgba(39,40,45,.5)] flex flex-col items-center justify-center gap-3 px-2 text-[#acb0b7]">
       {icons.map((icon) => {
@@ -61,7 +97,7 @@ const Sidebar = () => {
                       : "hover:bg-[rgba(255,255,255,0.1)]"
                   )}
                   onClick={() => {
-                    router.push(icon.href);
+                    scrollToSection(icon.href);
                   }}
                 >
                   {/* <Link href={icon.href}>{icon.icon}</Link> */}
