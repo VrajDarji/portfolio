@@ -68,6 +68,7 @@ const Sidebar = () => {
     if (sectionId === "#") {
       sId = "#container";
     }
+    console.log(sectionId);
     const section = document.getElementById(sId);
     if (section) {
       const fromTop = window.scrollY;
@@ -79,6 +80,7 @@ const Sidebar = () => {
       setTimeout(() => {
         SetPathname(sectionId);
       }, 250);
+      // console.log(pathname);
     }
   };
 
@@ -100,7 +102,6 @@ const Sidebar = () => {
                     scrollToSection(icon.href);
                   }}
                 >
-                  {/* <Link href={icon.href}>{icon.icon}</Link> */}
                   {icon.icon}
                 </button>
               </TooltipTrigger>

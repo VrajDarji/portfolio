@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 const Hero = () => {
   return (
-    <div id="#">
+    <div id="#" className="pb-[4rem]">
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-col gap-2">
           <h1 className="text-[3.75rem] font-bold tracking-[-0.025rem] leading-[4.25rem] text-[#edeef0]">
@@ -26,20 +26,33 @@ const Hero = () => {
       </div>
       <div>
         {/* About */}
+        <h1 className="font-semibold text-3xl text-white">A Bit About Me</h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In
-          temporibus, saepe neque excepturi explicabo a aperiam dolore expedita
-          cul=pa repellat, quisquam, commodi at fuga reprehenderit. Magnam
-          deserunt nesciunt ut aut officia natus? Libero illo sequi mollitia
-          alias fugiat natus fugit ut, autem, iste expedita dicta, minima
-          consequatur error accusantium quos quaerat nostrum sapiente?
-          Voluptatem debitis ullam consectetur, sint cupiditate earum minima
-          molestiae exercitationem, tempora aliquid quia obcaecati, impedit modi
-          culpa deleniti ipsam optio veritatis velit at? Repudiandae autem
-          voluptate iure voluptatem minima maxime pariatur fugit consequatur,
-          soluta, quia mollitia necessitatibus perferendis rem cupiditate ex
-          alias nihil adipisci blanditiis exercitationem ratione?
+          From &quot;Hello World!&quot; to complex projects: My journey in a
+          nutshell.{" "}
         </p>
+        <div className="flex flex-col gap-5 pt-8">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+            mollitia ducimus autem, obcaecati quis tempora, nihil ad consectetur
+            rem ipsum officia commodi excepturi placeat praesentium?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+            mollitia ducimus autem, obcaecati quis tempora, nihil ad consectetur
+            rem ipsum officia commodi excepturi placeat praesentium?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+            mollitia ducimus autem, obcaecati quis tempora, nihil ad consectetur
+            rem ipsum officia commodi excepturi placeat praesentium?
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae
+            mollitia ducimus autem, obcaecati quis tempora, nihil ad consectetur
+            rem ipsum officia commodi excepturi placeat praesentium?
+          </p>
+        </div>
       </div>
     </div>
   );
