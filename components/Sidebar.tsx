@@ -31,11 +31,6 @@ const icons = [
     tag: "Work Experience",
     href: "#experience",
   },
-  {
-    icon: <Mail className="h-5 w-5" strokeWidth={1} />,
-    tag: "Contact",
-    href: "#contact",
-  },
 ];
 
 const Sidebar = () => {

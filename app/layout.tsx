@@ -5,6 +5,7 @@ import Sidebar from "@/components/Sidebar";
 import Profile from "@/components/Profile";
 import { cn } from "@/lib/utils";
 import Backgroud from "@/components/Backgroud";
+import { ThemeProvider } from "@/components/provider/theme-provider";
 const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,10 +21,17 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={cn("bg-[hsl(240,5%,9.8%)]", font.className)}>
-        <Backgroud />
-        <Sidebar />
-        <Profile />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <Backgroud />
+          <Sidebar />
+          <Profile />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

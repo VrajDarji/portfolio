@@ -11,6 +11,7 @@ import {
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
+import ContactModal from "./Contact-Modal";
 
 const socials = [
   {
@@ -35,9 +36,16 @@ const Profile = () => {
   const Enlarge = () => {
     setIsEnlarged((prev) => !prev);
   };
+  const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   return (
     <>
+      <ContactModal
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      />
       <div
         className={cn(
           "fixed transition-all duration-0 top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] z-50 backdrop-blur-sm flex justify-center items-center overflow-hidden",
@@ -108,8 +116,16 @@ const Profile = () => {
             );
           })}
         </div>
-        <div>{/* Info */}</div>
-        <div className="flex flex-col gap-2 w-full mb-auto">
+        <div className="mt-2 text-[.8rem] font-light text-center">
+          <p>
+            An ardent explorer of Developer Experience, and a beacon for Open
+            Source, Indie Hacking, and the infinite possibilities of Artificial
+            Intelligence. My compass points towards leading passionate teams,
+            uplifting developers, and crafting with a heart tuned to the
+            user&apos;s beat.
+          </p>
+        </div>
+        <div className="flex flex-col gap-2 w-full mt-auto">
           <Button variant={"outline2"}>
             <a href="/Vraj_Resume.pdf" download className="flex flex-row">
               <Download className="mr-2 h-4 w-4" /> Download Resume
@@ -118,7 +134,7 @@ const Profile = () => {
           <Button
             variant={"outline"}
             onClick={() => {
-              router.push("/contact");
+              setIsOpen(true);
             }}
           >
             Contact
