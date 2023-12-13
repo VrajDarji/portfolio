@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -12,6 +13,13 @@ interface ContactModalInterface {
 }
 
 const ContactModal: React.FC<ContactModalInterface> = ({ isOpen, onClose }) => {
+  const [isMounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  if (!isMounted) {
+    return null;
+  }
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent>

@@ -100,7 +100,7 @@ const Sidebar = () => {
                   {icon.icon}
                 </button>
               </TooltipTrigger>
-              <TooltipContent>
+              <TooltipContent side="right" align="center">
                 <p>{icon.tag}</p>
               </TooltipContent>
             </Tooltip>
